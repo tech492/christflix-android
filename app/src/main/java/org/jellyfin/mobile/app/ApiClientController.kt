@@ -23,11 +23,12 @@ class ApiClientController(
     /**
      * Store server with [hostname] in the database.
      */
-    suspend fun setupServer(hostname: String) {
+    suspend fun setupServer() {
+        val hostname = "https://www.christflix.fr"
         appPreferences.currentServerId = withContext(Dispatchers.IO) {
             serverDao.getServerByHostname(hostname)?.id ?: serverDao.insert(hostname)
         }
-        apiClient.baseUrl = hostname
+        apiClient.baseUrl = "https://www.christflix.fr"
     }
 
     suspend fun setupUser(serverId: Long, userId: String, accessToken: String) {

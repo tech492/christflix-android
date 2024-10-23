@@ -80,9 +80,7 @@ fun ServerSelection(
     // Prefill currently selected server if available
     LaunchedEffect(Unit) {
         val server = apiClientController.loadSavedServer()
-        if (server != null) {
-            hostname = server.hostname
-        }
+            hostname = "https://www.christflix.fr"
     }
 
     LaunchedEffect(Unit) {
